@@ -4,7 +4,10 @@
 
 FROM python:2.7
 # Install app dependencies
-WORKDIR /home/ubuntu/iqra-api
+WORKDIR /app
+
+# Install app dependencies
+COPY ./requirements.txt ./
 
 RUN pip install -r requirements.txt
 
