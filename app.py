@@ -13,6 +13,9 @@ ix = open_dir("whooshdir")
 def root_dir():
     return os.path.abspath(os.path.dirname(__file__))
 
+@app.route('/',methods=['GET'])
+def index():
+    return jsonify({'code':200, 'message':'v1 API Tahfeez'})
 
 @app.route('/api/search', methods=['POST'])
 def getSearchResult():
@@ -68,4 +71,5 @@ def server_error(error):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', debug=True, port=port)
